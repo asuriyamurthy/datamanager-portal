@@ -1,0 +1,25 @@
+html, body {
+	font-family: "Calibri";
+}
+
+.demo-card-square.mdl-card {
+	width: 100%;
+	min-height: 150px;
+}
+
+.demo-card-square>.mdl-card__title {
+	color: #fff;
+	background: #009688;
+}
+
+.demo-card-wide.mdl-card {
+	width: 100%;
+}
+
+.demo-card-wide>.mdl-card__title {
+	color: #3F51B5;
+}
+
+.demo-card-wide>.mdl-card__menu {
+	color: #3F51B5;
+}

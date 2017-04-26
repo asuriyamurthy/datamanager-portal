@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html ng-app="angularjs-starter">
+	<head>
+		<title>Data manager - Dashboard</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="styles/material.indigo-pink.min.css" />
+		<link rel="stylesheet" href="styles/custom.css" />
+		<link rel="stylesheet" href="styles/dashboard.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />		
+	</head>
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+			<header class="mdl-layout__header">
+			<div class="mdl-layout__header-row">
+				<span class="mdl-layout-title">Data Manager</span>
+				<div class="mdl-layout-spacer"></div>
+				<nav class="mdl-navigation mdl-layout--large-screen-only">
+					<a class="mdl-navigation__link" href="">Dashboard</a> <a
+						class="mdl-navigation__link" href="">Financial Summary</a> <a
+						class="mdl-navigation__link" href="">Expense Analysis</a> <a
+						class="mdl-navigation__link" href="statements">Statements</a>
+				</nav>
+			</div>
+		</header>
+		<div class="mdl-layout__drawer">
+			<span class="mdl-layout-title">Data Manager</span>
+			<nav class="mdl-navigation">
+				<a class="mdl-navigation__link" href="">Dashboard</a> <a
+					class="mdl-navigation__link" href="">Financial Summary</a> <a
+					class="mdl-navigation__link" href="">Expense Analysis</a> <a
+					class="mdl-navigation__link" href="statements">Statements</a>
+			</nav>
+		</div>
+		<main class="mdl-layout__content">
+			<div class="page-content">
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--2-col" ng-controller = "account_controller">
+						<div class="demo-card-square mdl-card mdl-shadow--2dp">
+							<div class="mdl-card__title mdl-card--expand">
+								<h2 class="mdl-card__title-text" ng-bind-html="balance_tag"></h2>
+							</div>
+							<div class="mdl-card__actions mdl-card--border" ng-bind-html="balance_anchor_tag">
+							</div>
+							<div class="mdl-card__menu">
+								<button
+									class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+									style="color: #FFF;">
+									<i class="material-icons">account_balance</i>
+								</button>
+							</div>
+					</div>
+					<br />
+					<div class="demo-card-square mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title mdl-card--expand"
+							style="background: #01579B">
+							<h2 class="mdl-card__title-text" ng-bind-html="expense_tag"></h2>
+						</div>
+						<div class="mdl-card__actions mdl-card--border" ng-bind-html="expense_anchor_tag">
+						</div>
+						<div class="mdl-card__menu">
+							<button
+								class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+								style="color: #FFF;">
+								<i class="material-icons">info_outline</i>
+							</button>
+						</div>
+					</div>
+					<br />
+					<div class="demo-card-square mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title mdl-card--expand"
+							style="background: #F44336">
+							<h2 class="mdl-card__title-text" ng-bind-html="income_tag"></h2>
+						</div>
+						<div class="mdl-card__actions mdl-card--border" ng-bind-html="income_anchor_tag">>
+						</div>
+						<div class="mdl-card__menu">
+							<button
+								class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+								style="color: #FFF;">
+								<i class="material-icons">view_list</i>
+							</button>
+						</div>
+					</div>
+					</div>
+					<div class="mdl-cell mdl-cell--4-col" ng-controller = "expenses_categories_controller">
+						<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title"
+							style="background: #0D47A1; color: #fff;">
+							<h2 class="mdl-card__title-text">Top 5 expenses by categories</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							<div id="container" style="height: 400px" ng-bind-html="expenses_controller_category"></div>
+						</div>
+						<div class="mdl-card__menu">
+							<button
+								class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+								style="color: #FFF;">
+								<i class="material-icons">info</i>
+							</button>
+						</div>
+					</div>
+					</div>
+					<div class="mdl-cell mdl-cell--4-col" ng-controller="recent_expenses_controller">
+					<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title"
+							style="background: #880E4F; color: #fff;">
+							<h2 class="mdl-card__title-text">Recent expenses</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							<div id="container1" style="height: 400px" ng-bind-html="recent_expenses_category"></div>
+						</div>
+						<div class="mdl-card__menu">
+							<button
+								class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+								style="color: #FFF;">
+								<i class="material-icons">info</i>
+							</button>
+						</div>
+					</div>
+					</div>
+					<div class="mdl-cell mdl-cell--2-col" ng-controller="outstanding_expenses_controller">
+						<div class="demo-card-square mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title mdl-card--expand"
+							style="background: #01579B">
+							<h2 class="mdl-card__title-text" ng-bind-html="outstanding_tag"></h2>
+						</div>
+						<div class="mdl-card__actions mdl-card--border" ng-bind-html="outstanding_anchor_tag">>
+						</div>
+						<div class="mdl-card__menu">
+							<button
+								class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+								style="color: #FFF;">
+								<i class="material-icons">view_list</i>
+							</button>
+						</div>
+					</div>
+					<br/>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+		<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+		<script src="scripts/angular-sanitize.js"></script>
+		<script src="scripts/main.js"></script>
+		<script src="scripts/account_controller.js"></script>
+		<script src="scripts/expenses_categories_controller.js"></script>
+		<script src="scripts/recent_expenses_controller.js"></script>
+		<script src="scripts/outstanding_expenses_controller.js"></script>
+		</div>
+	</body>
+</html>
