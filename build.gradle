@@ -1,0 +1,41 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+
+version = '1.0.0'
+
+sourceCompatibility = 1.8
+
+
+mainClassName = "com.amaresh.projects.datamanagerportal.DatamanagerportalApplication"
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://repo.spring.io/libs-snapshot"
+        url 'http://repo.spring.io/milestone'
+        url 'http://repo.spring.io/libs-release'
+    }
+}
+
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web") 
+    compile('org.springframework.boot:spring-boot-starter-actuator') 
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    providedRuntime ('org.apache.tomcat.embed:tomcat-embed-jasper')
+}
