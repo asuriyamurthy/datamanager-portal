@@ -167,6 +167,29 @@
 					</div>
 					</div>
 				</div>
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--4-col" ng-controller="recent_activities_controller">
+						<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+							<div class="mdl-card__title"
+								style="background: #009688; color: #fff;">
+								<h2 class="mdl-card__title-text">Activities</h2>
+							</div>
+							
+								<div ng-bind-html="recent_activities_html"></div>
+							
+							<div class="mdl-card__menu">
+								<button
+									class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+									style="color: #FFF;">
+									<i class="material-icons">info</i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="mdl-cell mdl-cell--8-col">
+						
+					</div>
+				</div>
 			</div>
 		</main>
 		<script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
@@ -181,7 +204,7 @@
 		<script src="scripts/outstanding_expenses_controller.js"></script>
 		<script src="scripts/bank_account_controller.js"></script>
 		<script src="scripts/withdraw_account_controller.js"></script>
-		
+		<script src="scripts/recent_activities_controller.js"></script>
 		</div>
 	</body>
 </html>
